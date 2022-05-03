@@ -1,0 +1,3 @@
+R5T.F0002.Construction - Construction project for Common operations on System namespace, and related, types, like Predicate, regular expression pattern, Index etc..
+
+GOALS:
