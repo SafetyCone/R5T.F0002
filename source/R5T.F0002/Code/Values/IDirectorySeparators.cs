@@ -8,7 +8,8 @@ namespace R5T.F0002
 	[ValuesMarker]
 	public partial interface IDirectorySeparators : IValuesMarker
 	{
-		public char[] Both => new[] { Instances.Characters.Backslash, Instances.Characters.Slash };
+		private static readonly char[] zBoth = new[] { Instances.Characters.Backslash, Instances.Characters.Slash };
+		public char[] Both => IDirectorySeparators.zBoth;
 
 		public char NonWindows => Instances.Characters.Slash;
 		public char Windows => Instances.Characters.Backslash;

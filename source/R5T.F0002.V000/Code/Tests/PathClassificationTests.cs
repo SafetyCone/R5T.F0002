@@ -67,5 +67,45 @@ namespace R5T.F0002.V000
 
             Instances.Assertion.AreEqual(expectations, actual);
         }
+
+        [TestMethod]
+        public void Path_N001()
+        {
+            var expectations = Instances.ExpectedValues.Path_N001;
+
+            var actual = Instances.PathOperator.GetPathClassificationInfo(expectations);
+
+            Instances.Assertion.AreEqual(expectations, actual);
+        }
+
+        [TestMethod]
+        public void Path_N002()
+        {
+            var expectations = Instances.ExpectedValues.Path_N002;
+
+            var actual = Instances.PathOperator.GetPathClassificationInfo(expectations);
+
+            Instances.Assertion.AreEqual(expectations, actual);
+        }
+
+        [TestMethod]
+        public void Path_N003()
+        {
+            var expectations = Instances.ExpectedValues.Path_N003;
+
+            var actual = Instances.PathOperator.GetPathClassificationInfo(expectations);
+
+            Instances.Assertion.AreEqual(expectations, actual);
+        }
+
+        [TestMethod]
+        public void Path_N004()
+        {
+            var expectations = Instances.ExpectedValues.Path_N004;
+
+            var actual = Instances.PathOperator.GetPathClassificationInfo(expectations);
+
+            Instances.Assertion.AreEqual(expectations, actual);
+        }
     }
 }
