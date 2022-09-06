@@ -13,5 +13,10 @@ namespace R5T.F0002
 
 		public char NonWindows => Instances.Characters.Slash;
 		public char Windows => Instances.Characters.Backslash;
+
+		/// <summary>
+		/// The standard is <see cref="Windows"/>.
+		/// </summary>
+		public char Standard => this.Windows;
 	}
 }

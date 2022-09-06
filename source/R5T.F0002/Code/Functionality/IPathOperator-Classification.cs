@@ -110,6 +110,17 @@ namespace R5T.F0002
 			return output;
         }
 
+		public bool HasInvalidPathCharacters(string path)
+        {
+			var invalidCharacters = Instances.PathOperator.GetInvalidPathCharacters();
+
+			var containsInvalidCharacters = Instances.StringOperator.ContainsAny(
+				path,
+				invalidCharacters);
+
+			return containsInvalidCharacters;
+		}
+
 		/// <summary>
 		/// Determines whether the <paramref name="path"/> is <inheritdoc cref="Glossary.DirectoryIndicated" path="/name"/>.
 		/// </summary>
@@ -154,7 +165,7 @@ namespace R5T.F0002
 			// 1. Not null or empty.
 			// 2. Contains no invalid path characters (when considered as a path).
 			// 3. All path parts contain no invalid file name characters.
-			// 4. No path parts end with either "." or ".." (the special current directory and parent directory names).
+			// 4. No path parts end with either "." or "..", unless the entire path part is either "." or ".." (the special current directory and parent directory names).
 			// Note: there are differences between the allowed characters in a path, and the allowed characters in a file name (or directory name).
 			// Note: there are no differences for directory names vs. file names.
 
@@ -291,6 +302,15 @@ namespace R5T.F0002
 			if(!isValid)
             {
 				throw new Exception($"Invalid path: \"{path}\"");
+            }
+        }
+
+		public void Verify_NoInvalidPathCharacters(string path)
+        {
+			var hasInvalidPathCharacters = this.HasInvalidPathCharacters(path);
+			if(hasInvalidPathCharacters)
+            {
+				throw new Exception($"Path had invalid path characters. Path:\n{path}");
             }
         }
     }
@@ -549,13 +569,9 @@ namespace R5T.F0002
 			/// </summary>
 			public bool IsValid_NoInvalidPathCharacters(string path)
             {
-				var invalidCharacters = Instances.PathOperator.GetInvalidPathCharacters();
+				var hasInvalidPathCharacters = Instances.PathOperator.HasInvalidPathCharacters(path);
 
-				var containsInvalidCharacters = Instances.StringOperator.ContainsAny(
-					path,
-					invalidCharacters);
-
-				var output = !containsInvalidCharacters;
+				var output = !hasInvalidPathCharacters;
 				return output;
 			}
 
@@ -606,6 +622,7 @@ namespace R5T.F0002
 
 			/// <summary>
 			/// Directory names and files names cannot end with the current directory name ("."), or the parent directory name ("..").
+			/// This validates that the path contains no current directory or parent directory names, unless the entire path part is the current or parent directory name.
 			/// </summary>
 			public bool IsValid_NoEndingWithSpecialDirectoryNames(string path)
             {
@@ -613,6 +630,12 @@ namespace R5T.F0002
 
                 foreach (var pathPart in pathParts)
                 {
+					// The path part is valid if it is the current directory or parent directory name.
+					if(pathPart == Instances.DirectoryNames.CurrentDirectory || pathPart == Instances.DirectoryNames.ParentDirectory)
+                    {
+						continue;
+                    }
+
 					var endsWithSpecialDirectoryName = pathPart.EndsWith(Instances.DirectoryNames.CurrentDirectory) || path.EndsWith(Instances.DirectoryNames.ParentDirectory);
 					if(endsWithSpecialDirectoryName)
                     {

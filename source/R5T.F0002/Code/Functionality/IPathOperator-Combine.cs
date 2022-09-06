@@ -9,6 +9,39 @@ namespace R5T.F0002
 {
 	public partial interface IPathOperator
 	{
+        public string AppendDirectoryRelativePathToDirectoryPath(
+            string parentDirectoryPath,
+            string childDirectoryRelativePath)
+        {
+            var directoryIndicatedDirectoryPath = this.EnsureIsDirectoryIndicated(parentDirectoryPath);
+            var notRootIndicatedChildDirectoryRelativePath = this.EnsureIsNotRootIndicated(childDirectoryRelativePath);
+
+            var possiblyMixedDirectorySeparatorDirectoryPath = this.Combine_WithoutModification(directoryIndicatedDirectoryPath, notRootIndicatedChildDirectoryRelativePath);
+
+            var directorySeparator = this.DetectDirectorySeparatorOrStandard(directoryIndicatedDirectoryPath);
+
+            var output = this.EnsureDirectorySeparator(possiblyMixedDirectorySeparatorDirectoryPath, directorySeparator);
+            return output;
+        }
+
+        public string AppendToFileNameStem(
+            string filePath,
+            string appendix)
+        {
+            var directoryPath = Instances.PathOperator.GetParentDirectoryPath_ForFile(filePath);
+            var fileName = Instances.PathOperator.GetFileName(filePath);
+
+            var newFileName = Instances.FileNameOperator.AppendToFileNameStem(
+                fileName,
+                appendix);
+
+            var newFilePath = Instances.PathOperator.GetFilePath(
+                directoryPath,
+                newFileName);
+
+            return newFilePath;
+        }
+
         public string Combine(
             string prefixPath,
             string suffixPath)
