@@ -75,13 +75,25 @@ namespace R5T.F0002
             return output;
         }
 
-		public string GetFileName(string filePath)
+        public string GetDirectoryName(string directoryPath)
         {
-			var pathParts = this.GetAllPathParts(filePath);
+            var output = this.GetLastPathPart(directoryPath);
+            return output;
+        }
+
+        public string GetFileName(string filePath)
+        {
+			var output = this.GetLastPathPart(filePath);
+			return output;
+        }
+
+		public string GetLastPathPart(string path)
+        {
+			var pathParts = this.GetAllPathParts(path);
 
 			var fileName = pathParts.Last();
 			return fileName;
-        }
+		}
 
 		public string GetFileNameStem(string filePath)
         {
