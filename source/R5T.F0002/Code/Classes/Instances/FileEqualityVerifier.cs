@@ -7,7 +7,7 @@ namespace R5T.F0002
 	{
 		#region Infrastructure
 
-	    public static FileEqualityVerifier Instance { get; } = new();
+	    public static IFileEqualityVerifier Instance { get; } = new FileEqualityVerifier();
 
 	    private FileEqualityVerifier()
 	    {

@@ -7,7 +7,7 @@ namespace R5T.F0002
 	{
 		#region Infrastructure
 
-	    public static PathOperator Instance { get; } = new();
+	    public static IPathOperator Instance { get; } = new PathOperator();
 
 	    private PathOperator()
 	    {
@@ -23,7 +23,7 @@ namespace R5T.F0002
 		{
 			#region Infrastructure
 
-			public static PathOperator Instance { get; } = new();
+			public static IPathOperator Instance { get; } = new PathOperator();
 
 			private PathOperator()
 			{
@@ -40,7 +40,7 @@ namespace R5T.F0002
 		{
 			#region Infrastructure
 
-			public static PathOperator Instance { get; } = new();
+			public static IPathOperator Instance { get; } = new PathOperator();
 
 			private PathOperator()
 			{

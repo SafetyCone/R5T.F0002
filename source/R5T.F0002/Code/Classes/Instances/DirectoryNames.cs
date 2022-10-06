@@ -7,7 +7,7 @@ namespace R5T.F0002
 	{
 		#region Infrastructure
 
-	    public static DirectoryNames Instance { get; } = new();
+	    public static IDirectoryNames Instance { get; } = new DirectoryNames();
 
 	    private DirectoryNames()
 	    {

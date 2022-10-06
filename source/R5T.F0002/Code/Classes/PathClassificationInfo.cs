@@ -1,6 +1,6 @@
 ﻿using System;
 
-using R5T.Magyar;
+using R5T.F0000;
 
 
 namespace R5T.F0002

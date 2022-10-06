@@ -7,7 +7,7 @@ namespace R5T.F0002
 	{
 		#region Infrastructure
 
-	    public static PathSeparators Instance { get; } = new();
+	    public static IPathSeparators Instance { get; } = new PathSeparators();
 
 	    private PathSeparators()
 	    {

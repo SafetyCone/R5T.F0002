@@ -1,5 +1,8 @@
 using System;
-using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+
+using R5T.F0000;
 
 using Glossary = R5T.Y0000.Glossary.ForPaths;
 
@@ -12,6 +15,56 @@ namespace R5T.F0002
         {
 			var output = this.Combine(directoryPath, fileName);
 			return output;
+        }
+
+		public IEnumerable<FileCopyPair> GetDestinationFileCopyPairs(
+			IEnumerable<string> sourceFilePaths,
+			string destinationDirectoryPath)
+        {
+			var destinationFilePaths = sourceFilePaths
+				.Select(sourceFilePath =>
+				{
+					var destinationFilePath = this.GetDestinationFilePath(
+						sourceFilePath,
+						destinationDirectoryPath);
+
+					var fileCopyPair = new FileCopyPair
+					{
+						SourceFilePath = sourceFilePath,
+						DestinationFilePath = destinationFilePath,
+					};
+
+					return fileCopyPair;
+				})
+				;
+
+			return destinationFilePaths;
+        }
+
+		public IEnumerable<string> GetDestinationFilePaths(
+			IEnumerable<string> sourceFilePaths,
+			string destinationDirectoryPath)
+        {
+			var destinationFilePaths = sourceFilePaths
+				.Select(sourceFilePath => this.GetDestinationFilePath(
+					sourceFilePath,
+					destinationDirectoryPath))
+				;
+
+			return destinationFilePaths;
+		}
+
+		public string GetDestinationFilePath(
+			string filePath,
+			string destinationDirectoryPath)
+        {
+			var fileName = this.GetFileName(filePath);
+
+			var destinationFilePath = this.GetFilePath(
+				destinationDirectoryPath,
+				fileName);
+
+			return destinationFilePath;
         }
 
 		/// <summary>

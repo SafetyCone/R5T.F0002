@@ -7,7 +7,7 @@ namespace R5T.F0002
 	{
 		#region Infrastructure
 
-	    public static DirectoryNameOperator Instance { get; } = new();
+	    public static IDirectoryNameOperator Instance { get; } = new DirectoryNameOperator();
 
 	    private DirectoryNameOperator()
 	    {

@@ -7,7 +7,9 @@ namespace R5T.F0002.Construction
     {
         static void Main()
         {
-            PathOperations.SubMain();
+            XmlExplorations.Instance.TryXPath();
+
+            //PathOperations.SubMain();
         }
     }
 }

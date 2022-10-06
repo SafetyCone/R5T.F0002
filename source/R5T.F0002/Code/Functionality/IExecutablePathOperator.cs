@@ -19,5 +19,17 @@ namespace R5T.F0002
 			var executableDirectoryPath = Instances.PathOperator.GetParentDirectoryPath_ForFile(executableFilePath);
 			return executableDirectoryPath;
 		}
+
+		public string GetExecutableDirectoryRelativeFilePath(
+			string executableDirectoryRelativePath)
+		{
+			var executableDirectoryPath = this.GetExecutableDirectoryPath();
+
+			var filePath = Instances.PathOperator.GetFilePath(
+				executableDirectoryPath,
+				executableDirectoryRelativePath);
+
+			return filePath;
+		}
 	}
 }

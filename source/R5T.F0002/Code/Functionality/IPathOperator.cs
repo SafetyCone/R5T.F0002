@@ -81,7 +81,13 @@ namespace R5T.F0002
             return output;
         }
 
-        public string GetFileName(string filePath)
+		public string GetDirectoryNameOfDirectoryPath(string directoryPath)
+		{
+			var output = this.GetDirectoryName(directoryPath);
+			return output;
+		}
+
+		public string GetFileName(string filePath)
         {
 			var output = this.GetLastPathPart(filePath);
 			return output;
@@ -115,7 +121,7 @@ namespace R5T.F0002
 		{
 			var firstIndexOfDirectorySeparator = pathSegment.IndexOfAny(Instances.DirectorySeparators.Both);
 
-			var exists = StringHelper.IsFound(firstIndexOfDirectorySeparator);
+			var exists = Instances.StringOperator.IsFound(firstIndexOfDirectorySeparator);
 
 			directorySeparator = exists
 				? pathSegment[firstIndexOfDirectorySeparator]

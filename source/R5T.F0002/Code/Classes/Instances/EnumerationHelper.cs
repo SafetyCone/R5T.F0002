@@ -7,7 +7,7 @@ namespace R5T.F0002
 	{
 		#region Infrastructure
 
-	    public static EnumerationHelper Instance { get; } = new();
+	    public static IEnumerationHelper Instance { get; } = new EnumerationHelper();
 
 	    private EnumerationHelper()
 	    {

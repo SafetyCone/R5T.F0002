@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-using R5T.Magyar;
+using R5T.F0000;
 
 using Glossary = R5T.Y0000.Glossary.ForPaths;
 

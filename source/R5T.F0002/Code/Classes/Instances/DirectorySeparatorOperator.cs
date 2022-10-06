@@ -7,7 +7,7 @@ namespace R5T.F0002
 	{
 		#region Infrastructure
 
-	    public static DirectorySeparatorOperator Instance { get; } = new();
+	    public static IDirectorySeparatorOperator Instance { get; } = new DirectorySeparatorOperator();
 
 	    private DirectorySeparatorOperator()
 	    {

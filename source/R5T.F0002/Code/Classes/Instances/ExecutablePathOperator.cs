@@ -7,7 +7,7 @@ namespace R5T.F0002
 	{
 		#region Infrastructure
 
-	    public static ExecutablePathOperator Instance { get; } = new();
+	    public static IExecutablePathOperator Instance { get; } = new ExecutablePathOperator();
 
 	    private ExecutablePathOperator()
 	    {
