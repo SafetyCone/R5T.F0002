@@ -8,7 +8,8 @@ using R5T.T0132;
 namespace R5T.F0002
 {
 	[FunctionalityMarker]
-	public partial interface IPathOperator : IFunctionalityMarker
+	public partial interface IPathOperator : IFunctionalityMarker,
+		F0000.IPathOperator
 	{
 		private static Internal.IPathOperator Internal { get; } = F0002.Internal.PathOperator.Instance;
 		private static Implementations.IPathOperator Implementations { get; } = F0002.Implementations.PathOperator.Instance;
