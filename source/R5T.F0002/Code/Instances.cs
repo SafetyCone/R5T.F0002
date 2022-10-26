@@ -18,7 +18,7 @@ namespace R5T.F0002
         public static IFileNameOperator FileNameOperator { get; } = F0000.FileNameOperator.Instance;
         public static IPathOperator PathOperator { get; } = F0002.PathOperator.Instance;
         public static IPathSeparators PathSeparators { get; } = F0002.PathSeparators.Instance;
-        public static IStreamReaderOperator StreamReaderOperator { get; } = F0002.StreamReaderOperator.Instance;
+        public static IStreamReaderOperator StreamReaderOperator { get; } = F0000.StreamReaderOperator.Instance;
         public static IStringOperator StringOperator { get; } = F0000.StringOperator.Instance;
         public static IStrings Strings { get; } = Z0000.Strings.Instance;
         public static IXPathOperator XPathOperator { get; } = F0002.XPathOperator.Instance;

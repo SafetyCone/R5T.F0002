@@ -9,7 +9,7 @@ using Glossary = R5T.Y0000.Glossary.ForPaths;
 
 namespace R5T.F0002
 {
-	public partial interface IPathOperator
+    public partial interface IPathOperator
 	{
 		public string GetFilePath(string directoryPath, string fileName)
         {
@@ -117,6 +117,30 @@ namespace R5T.F0002
 			return output;
         }
 
+		public Dictionary<string, string> GetRelativePaths(
+			string sourcePath,
+			IEnumerable<string> destinationPaths)
+		{
+			var directorySeparator = this.DetectDirectorySeparator(sourcePath);
+
+			var relativePathsByDestinationPath = destinationPaths
+				.Distinct()
+				.Select(destinationPath =>
+				{
+					var relativePath = this.GetRelativePath(
+						sourcePath,
+						destinationPath,
+						directorySeparator);
+
+					return (destinationPath, relativePath);
+				})
+				.ToDictionary(
+					x => x.destinationPath,
+					x => x.relativePath);
+
+			return relativePathsByDestinationPath;
+		}
+
 		public string GetRelativePath(
 			string sourcePath,
 			string destinationPath,
@@ -148,7 +172,7 @@ namespace R5T.F0002
 
 	namespace Internal
     {
-		public partial interface IPathOperator
+        public partial interface IPathOperator
         {
 			public int GetLastDirectorySeparatorIndex(string path)
             {

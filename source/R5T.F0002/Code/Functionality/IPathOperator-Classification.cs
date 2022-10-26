@@ -15,7 +15,7 @@ using Glossary = R5T.Y0000.Glossary.ForPaths;
 
 namespace R5T.F0002
 {
-	public partial interface IPathOperator
+    public partial interface IPathOperator
 	{
 		public PathClassificationInfo GetPathClassificationInfo(string path)
         {
@@ -318,7 +318,7 @@ namespace R5T.F0002
 
     namespace Internal
     {
-		public partial interface IPathOperator
+        public partial interface IPathOperator
         {
 			public WasFound<char> HasFirstDirectorySeparator(string path)
             {
@@ -550,7 +550,7 @@ namespace R5T.F0002
 
 	namespace Implementations
     {
-		public partial interface IPathOperator
+        public partial interface IPathOperator
         {
 			/// <summary>
 			/// Determines whether a path is valid based solely on whether it is not null and not empty.
