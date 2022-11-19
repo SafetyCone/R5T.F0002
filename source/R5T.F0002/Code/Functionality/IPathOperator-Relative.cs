@@ -11,7 +11,7 @@ namespace R5T.F0002
 {
     public partial interface IPathOperator
 	{
-		public string GetFilePath(string directoryPath, string fileName)
+		new public string GetFilePath(string directoryPath, string fileName)
         {
 			var output = this.Combine(directoryPath, fileName);
 			return output;

@@ -12,7 +12,7 @@ namespace R5T.F0002
 	public partial interface IExecutablePathOperator : IFunctionalityMarker,
 		F0000.IExecutablePathOperator
 	{
-		public string GetExecutableDirectoryPath()
+		new public string GetExecutableDirectoryPath()
 		{
 			var executableFilePath = this.GetExecutableFilePath();
 
