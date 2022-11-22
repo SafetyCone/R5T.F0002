@@ -82,6 +82,16 @@ namespace R5T.F0002
             return output;
         }
 
+		public bool DirectoryNameOfDirectoryPathIs(
+			string directoryPath,
+			string directoryName)
+		{
+			var directoryNameFound = this.GetDirectoryNameOfDirectoryPath(directoryPath);
+
+			var output = directoryName == directoryNameFound;
+			return output;
+		}
+
 		public string GetDirectoryNameOfDirectoryPath(string directoryPath)
 		{
 			var output = this.GetDirectoryName(directoryPath);
