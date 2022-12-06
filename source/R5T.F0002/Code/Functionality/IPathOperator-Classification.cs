@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-
+using System.Resources;
 using R5T.F0000;
 
 using Glossary = R5T.Y0000.Glossary.ForPaths;
@@ -143,6 +143,23 @@ namespace R5T.F0002
 			return output;
 		}
 
+		public bool IsGlobbed(string path)
+		{
+			var globPatterns = Instances.Strings.GlobPatterns;
+
+			foreach (var globPattern in globPatterns)
+			{
+				var pathContainsGlobPattern = path.Contains(globPattern);
+				if(pathContainsGlobPattern)
+				{
+					return true;
+				}
+			}
+
+			// Else, failure.
+			return false;
+		}
+
 		public bool IsResolved(string path)
         {
 			this.Validate(path);
@@ -183,11 +200,11 @@ namespace R5T.F0002
 				return false;
             }
 
-			var isValid_NoInvalidFileNameCharactersInPathParts = Implementations.IsValid_NoInvalidFileNameCharactersInPathParts(path);
-			if (!isValid_NoInvalidFileNameCharactersInPathParts)
-			{
-				return false;
-			}
+			//var isValid_NoInvalidFileNameCharactersInPathParts = Implementations.IsValid_NoInvalidFileNameCharactersInPathParts(path);
+			//if (!isValid_NoInvalidFileNameCharactersInPathParts)
+			//{
+			//	return false;
+			//}
 
 			var isValid_NoEndingWithSpecialDirectoryNames = Implementations.IsValid_NoEndingWithSpecialDirectoryNames(path);
 			if(!isValid_NoEndingWithSpecialDirectoryNames)

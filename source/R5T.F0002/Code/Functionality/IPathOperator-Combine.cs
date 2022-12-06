@@ -97,6 +97,23 @@ namespace R5T.F0002
         }
 
         /// <summary>
+        /// Combine the path segments, ensuring that the result is resolved.
+        /// </summary>
+        public string Combine_EnsureResolved(
+            string prefixPath,
+            string suffixPath)
+        {
+            var directorySeparator = this.DetectDirectorySeparatorOrStandard(prefixPath);
+
+            var output = this.Combine_EnsureResolved(
+                prefixPath,
+                suffixPath,
+                directorySeparator);
+
+            return output;
+        }
+
+        /// <summary>
         /// Combines the paths, ensuring that the path uses the specified directory separator.
         /// </summary>
         public string Combine_EnsureDirectorySeparator(
@@ -181,8 +198,39 @@ namespace R5T.F0002
 
         public string GetDirectoryPath(string parentDirectoryPath, params string[] directoryNames)
         {
-            var output = this.GetDirectoryPath(parentDirectoryPath, directoryNames.AsEnumerable());
+            var output = this.GetDirectoryPath(
+                parentDirectoryPath,
+                directoryNames.AsEnumerable());
+
             return output;
+        }
+
+        public string GetFilePath(string parentDirectoryPath, IEnumerable<string> filePathParts)
+        {
+            var filePathPartsArray = filePathParts.ToArray();
+
+            var filePath = this.GetFilePath(
+                parentDirectoryPath,
+                filePathPartsArray);
+
+            return filePath;
+        }
+
+        public string GetFilePath(string parentDirectoryPath, params string[] filePathParts)
+        {
+            var directoryPathParts = filePathParts.ExceptLast();
+
+            var fileParentDirectoryPath = this.GetDirectoryPath(
+                parentDirectoryPath,
+                directoryPathParts);
+
+            var fileName = filePathParts.Last();
+
+            var filePath = this.GetFilePath(
+                parentDirectoryPath,
+                fileName);
+
+            return filePath;
         }
     }
 }
