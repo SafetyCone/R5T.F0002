@@ -227,7 +227,7 @@ namespace R5T.F0002
             var fileName = filePathParts.Last();
 
             var filePath = this.GetFilePath(
-                parentDirectoryPath,
+                fileParentDirectoryPath,
                 fileName);
 
             return filePath;
