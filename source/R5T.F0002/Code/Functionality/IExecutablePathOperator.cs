@@ -20,6 +20,9 @@ namespace R5T.F0002
 			return executableDirectoryPath;
 		}
 
+		/// <summary>
+		/// Gets the path of a file given the executable directory-relative path of the file.
+		/// </summary>
 		public string GetExecutableDirectoryRelativeFilePath(
 			string executableDirectoryRelativePath)
 		{
