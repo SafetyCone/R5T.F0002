@@ -64,18 +64,6 @@ namespace R5T.F0002
 			return output;
 		}
 
-		public char[] GetInvalidFileNameCharacters()
-        {
-            var output = Path.GetInvalidFileNameChars();
-            return output;
-        }
-
-        public char[] GetInvalidPathCharacters()
-        {
-            var output = Path.GetInvalidPathChars();
-            return output;
-        }
-
         public string GetDirectoryName(string directoryPath)
         {
             var output = this.GetLastPathPart(directoryPath);

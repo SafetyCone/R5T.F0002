@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Resources;
 using R5T.F0000;
-
+using R5T.T0132;
 using Glossary = R5T.Y0000.Glossary.ForPaths;
 
 
@@ -567,7 +567,8 @@ namespace R5T.F0002
 
 	namespace Implementations
     {
-        public partial interface IPathOperator
+		[FunctionalityMarker]
+        public partial interface IPathOperator : IFunctionalityMarker
         {
 			/// <summary>
 			/// Determines whether a path is valid based solely on whether it is not null and not empty.
