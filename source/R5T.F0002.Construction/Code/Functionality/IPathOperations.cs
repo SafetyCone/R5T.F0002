@@ -1,33 +1,27 @@
-﻿using System;
-using System.IO;
+using System;
 using System.Linq;
+
+using R5T.T0132;
 
 
 namespace R5T.F0002.Construction
 {
-    public static class PathOperations
+    [FunctionalityMarker]
+    public partial interface IPathOperations : IFunctionalityMarker
     {
-        public static void SubMain()
-        {
-            //PathOperations.TryIsDirectoryIndicated();
-            PathOperations.AnalyzePath();
-        }
-
-#pragma warning disable IDE0051 // Remove unused private members
-
-        private static void AnalyzePath()
+        public void AnalyzePath()
         {
             // Select a file-indicated path.
             var path = Instances.Paths.N013;
 
             var outputFilePath = @"C:\Temp\Path Analysis.txt";
 
-            PathOperations.AnalyzePath(
+            this.AnalyzePath(
                 path,
                 outputFilePath);
         }
 
-        private static void AnalyzePath(
+        public void AnalyzePath(
             string path,
             string outputFilePath)
         {
@@ -67,12 +61,12 @@ namespace R5T.F0002.Construction
             .Append($"\n# Without Validation #\n\nPath:\n\"{path}\"\n")
             .AppendRange(GetLines(pathClassificationInfo_NoValidation));
 
-            FileHelper.WriteAllLines_Synchronous(
+            Instances.FileOperator.WriteAllLines_Synchronous(
                 outputFilePath,
                 lines);
         }
 
-        private static void TryIsDirectoryIndicated()
+        public void TryIsDirectoryIndicated()
         {
             var fileIndicatedPath = Instances.Paths.N001;
             //var expected = false;

@@ -8,10 +8,9 @@
     <PackageReference Include="MSTest.TestAdapter" Version="2.2.8" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\R5T.L0020\source\R5T.L0020\R5T.L0020.csproj" />
-    <ProjectReference Include="..\..\..\R5T.T0119\source\R5T.T0119.X001\R5T.T0119.X001.csproj" />
-    <ProjectReference Include="..\..\..\R5T.T0120\source\R5T.T0120.X002\R5T.T0120.X002.csproj" />
+    <ProjectReference Include="..\..\..\R5T.F0101\source\R5T.F0101\R5T.F0101.csproj" />
     <ProjectReference Include="..\..\..\R5T.Z0004\source\R5T.Z0004\R5T.Z0004.csproj" />
+    <ProjectReference Include="..\R5T.F0002.V000.T000\R5T.F0002.V000.T000.csproj" />
     <ProjectReference Include="..\R5T.F0002\R5T.F0002.csproj" />
   </ItemGroup>
 </Project>

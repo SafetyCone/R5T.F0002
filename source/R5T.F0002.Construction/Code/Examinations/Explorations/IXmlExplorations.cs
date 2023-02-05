@@ -19,9 +19,9 @@ namespace R5T.F0002.Construction
 
 			var xPath = "/Project";
 
-			var elementWasFound = xDocument.HasElement(xPath);
+			//var elementWasFound = xDocument.HasElement(xPath);
 			
-			Console.WriteLine(elementWasFound);
+			//Console.WriteLine(elementWasFound);
         }
 	}
 }

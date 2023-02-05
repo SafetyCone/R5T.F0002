@@ -7,9 +7,13 @@ namespace R5T.F0002.Construction
     {
         static void Main()
         {
-            XmlExplorations.Instance.TryXPath();
+            //GlobExperiments.Instance.GetAbsolutePath();
+            GlobExperiments.Instance.GetRelativePath();
 
-            //PathOperations.SubMain();
+            //XmlExplorations.Instance.TryXPath();
+
+            //PathOperations.Instance.TryIsDirectoryIndicated();
+            //PathOperations.Instance.AnalyzePath();
         }
     }
 }

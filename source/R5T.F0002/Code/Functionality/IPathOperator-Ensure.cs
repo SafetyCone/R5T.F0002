@@ -52,6 +52,36 @@ namespace R5T.F0002
             return output;
         }
 
+		public string EnsureNonWindowsDirectorySeparator(string path)
+		{
+			var output = this.MakeNonWindowsDirectorySeparated(path);
+			return output;
+		}
+
+        public string EnsureWindowsDirectorySeparator(string path)
+        {
+            var output = this.MakeWindowsDirectorySeparated(path);
+            return output;
+        }
+
+        public string MakeNonWindowsDirectorySeparated(string path)
+		{
+			var output = path.Replace(
+				Instances.DirectorySeparators.Windows,
+				Instances.DirectorySeparators.NonWindows);
+
+			return output;
+		}
+
+        public string MakeWindowsDirectorySeparated(string path)
+        {
+            var output = path.Replace(
+                Instances.DirectorySeparators.NonWindows,
+                Instances.DirectorySeparators.Windows);
+
+            return output;
+        }
+
         public string MakeNotDirectoryIndicated(string path)
         {
             var output = path.TrimEnd(Instances.DirectorySeparators.Both);

@@ -2,6 +2,8 @@
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+using R5T.F0002.V000.T000;
+
 
 namespace R5T.F0002.V000
 {
@@ -75,7 +77,10 @@ namespace R5T.F0002.V000
 
             var actual = Instances.PathOperator.GetPathClassificationInfo(expectations);
 
-            Instances.Assertion.AreEqual(expectations, actual);
+            Instances.Assertion.AreEqual(
+                expectations,
+                actual,
+                PathClassificationInfoAllowNullEqualityComparer.Instance);
         }
 
         [TestMethod]
@@ -85,7 +90,10 @@ namespace R5T.F0002.V000
 
             var actual = Instances.PathOperator.GetPathClassificationInfo(expectations);
 
-            Instances.Assertion.AreEqual(expectations, actual);
+            Instances.Assertion.AreEqual(
+                expectations,
+                actual,
+                PathClassificationInfoAllowNullEqualityComparer.Instance);
         }
 
         [TestMethod]
@@ -95,7 +103,10 @@ namespace R5T.F0002.V000
 
             var actual = Instances.PathOperator.GetPathClassificationInfo(expectations);
 
-            Instances.Assertion.AreEqual(expectations, actual);
+            Instances.Assertion.AreEqual(
+                expectations,
+                actual,
+                PathClassificationInfoAllowNullEqualityComparer.Instance);
         }
 
         [TestMethod]
@@ -105,7 +116,10 @@ namespace R5T.F0002.V000
 
             var actual = Instances.PathOperator.GetPathClassificationInfo(expectations);
 
-            Instances.Assertion.AreEqual(expectations, actual);
+            Instances.Assertion.AreEqual(
+                expectations,
+                actual,
+                PathClassificationInfoAllowNullEqualityComparer.Instance);
         }
     }
 }
