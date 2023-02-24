@@ -26,18 +26,29 @@ namespace R5T.F0002
 
         public string AppendToFileNameStem(
             string filePath,
-            string appendix)
+            Func<string, string> fileNameModifier)
         {
             var directoryPath = Instances.PathOperator.GetParentDirectoryPath_ForFile(filePath);
             var fileName = Instances.PathOperator.GetFileName(filePath);
 
-            var newFileName = Instances.FileNameOperator.AppendToFileNameStem(
-                fileName,
-                appendix);
+            var newFileName = fileNameModifier(fileName);
 
             var newFilePath = Instances.PathOperator.GetFilePath(
                 directoryPath,
                 newFileName);
+
+            return newFilePath;
+        }
+
+        public string AppendToFileNameStem(
+            string filePath,
+            string appendix)
+        {
+            var newFilePath = this.AppendToFileNameStem(
+                filePath,
+                fileName => Instances.FileNameOperator.AppendToFileNameStem(
+                    fileName,
+                    appendix));
 
             return newFilePath;
         }
