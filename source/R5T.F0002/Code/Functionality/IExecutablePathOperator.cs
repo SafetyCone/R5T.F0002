@@ -34,5 +34,33 @@ namespace R5T.F0002
 
 			return filePath;
 		}
-	}
+
+		/// <summary>
+		/// Gets the file path for an assembly in the same directory as the current executable.
+		/// </summary>
+		public string Get_ExecutableDirectoryAssemblyFilePath(string assemblyName)
+		{
+            var assemblyFileName = Instances.FileNameOperator.Get_AssemblyFileName(
+                assemblyName);
+
+            var assemblyFilePath = Instances.ExecutablePathOperator.GetExecutableDirectoryRelativeFilePath(
+                assemblyFileName);
+
+            return assemblyFilePath;
+        }
+
+        /// <summary>
+        /// Gets the file path for the XML documentation file of an assembly in the same directory as the current executable.
+        /// </summary>
+        public string Get_ExecutableDirectoryAssemblyDocumentatinFilePath(string assemblyName)
+        {
+            var assemblyDocumentationFileName = Instances.FileNameOperator.Get_AssemblyDocumentationFileName(
+                assemblyName);
+
+            var assemblyDocumentationFilePath = Instances.ExecutablePathOperator.GetExecutableDirectoryRelativeFilePath(
+                assemblyDocumentationFileName);
+
+            return assemblyDocumentationFilePath;
+        }
+    }
 }
