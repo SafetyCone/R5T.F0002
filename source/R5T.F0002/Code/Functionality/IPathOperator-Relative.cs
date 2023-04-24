@@ -11,7 +11,11 @@ namespace R5T.F0002
 {
     public partial interface IPathOperator
 	{
-		new public string GetFilePath(string directoryPath, string fileName)
+        /// <summary>
+        /// Quality-of-life overload for <see cref="IPathOperator.Combine(string, string)"/>.
+        /// <para><inheritdoc cref="IPathOperator.Combine(string, string)" path="/summary"/></para>
+        /// </summary>
+        new public string GetFilePath(string directoryPath, string fileName)
         {
 			var output = this.Combine(directoryPath, fileName);
 			return output;

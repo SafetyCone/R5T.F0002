@@ -53,6 +53,9 @@ namespace R5T.F0002
             return newFilePath;
         }
 
+        /// <summary>
+        /// Combines two paths, detecting the directory separator and ensuring the path is resolved.
+        /// </summary>
         public string Combine(
             string prefixPath,
             string suffixPath)

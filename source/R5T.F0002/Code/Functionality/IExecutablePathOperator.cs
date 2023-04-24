@@ -12,9 +12,12 @@ namespace R5T.F0002
 	public partial interface IExecutablePathOperator : IFunctionalityMarker,
 		F0000.IExecutablePathOperator
 	{
+		/// <summary>
+		/// Gets the directory path containing the current executable file.
+		/// </summary>
 		new public string GetExecutableDirectoryPath()
 		{
-			var executableFilePath = this.GetExecutableFilePath();
+			var executableFilePath = this.Get_ExecutableFilePath();
 
 			var executableDirectoryPath = Instances.PathOperator.GetParentDirectoryPath_ForFile(executableFilePath);
 			return executableDirectoryPath;
