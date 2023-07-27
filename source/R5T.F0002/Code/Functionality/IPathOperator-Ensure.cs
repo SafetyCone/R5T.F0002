@@ -28,6 +28,10 @@ namespace R5T.F0002
             return output;
         }
 
+		/// <summary>
+		/// Ensures the path ends with a directory separator.
+		/// The directory separator is detected within the path.
+		/// </summary>
 		public string EnsureIsDirectoryIndicated(string path)
 		{
 			var isDirectoryIndicated = this.IsDirectoryIndicated(path);
@@ -182,12 +186,19 @@ namespace R5T.F0002
 			return output;
 		}
 
+		/// <summary>
+		/// Makes a path directory indicated.
+		/// </summary>
 		public string MakeDirectoryIndicated(string path)
         {
 			var output = this.MakeDirectoryIndicated(path, true);
 			return output;
         }
 
+		/// <summary>
+		/// Detects the directory separator within the path (or errors if a directory separator cannot be detected),
+		/// then adds or removes the directory separator to the end of the path if the path is not directory indicated.
+		/// </summary>
 		public string MakeDirectoryIndicated(
 			string path,
 			bool directoryIndicated)
@@ -202,6 +213,9 @@ namespace R5T.F0002
 			return output;
 		}
 
+		/// <summary>
+		/// Given a path and a directory separator, makes the path either directory indicated or not, given the directory separator.
+		/// </summary>
 		public string MakeDirectoryIndicated(
 			string path,
 			char directorySeparator,
@@ -215,6 +229,9 @@ namespace R5T.F0002
 			return output;
 		}
 
+		/// <summary>
+		/// Adds the <paramref name="directorySeparator"/> to the end of the path.
+		/// </summary>
 		public string MakeDirectoryIndicated(
 			string path,
 			char directorySeparator)

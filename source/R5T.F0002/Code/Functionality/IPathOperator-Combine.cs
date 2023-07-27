@@ -200,13 +200,14 @@ namespace R5T.F0002
 
         public string GetDirectoryPath(string parentDirectoryPath, IEnumerable<string> directoryNames)
         {
-            var output = parentDirectoryPath;
+            var directoryPath = parentDirectoryPath;
 
             foreach (var directoryName in directoryNames)
             {
-                output = this.GetDirectoryPath(output, directoryName);
+                directoryPath = this.GetDirectoryPath(directoryPath, directoryName);
             }
 
+            var output = this.EnsureIsDirectoryIndicated(directoryPath);
             return output;
         }
 

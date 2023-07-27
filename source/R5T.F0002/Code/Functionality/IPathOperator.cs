@@ -15,6 +15,10 @@ namespace R5T.F0002
 		private static Implementations.IPathOperator Implementations { get; } = F0002.Implementations.PathOperator.Instance;
 
 
+		/// <summary>
+		/// Finds the first directory separator in the path (or errors if none is found).
+		/// </summary>
+		/// <exception cref="InvalidOperationException">Thrown if no directory separator is found anywhere in the path.</exception>
 		public char DetectDirectorySeparator(string path)
         {
 			var hasDirectorySeparator = Internal.HasFirstDirectorySeparator(path);
