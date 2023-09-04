@@ -341,7 +341,7 @@ namespace R5T.F0002
             {
 				var directorySeparators = Instances.DirectorySeparators.Both;
 
-				var indexOfFirstDirectorySeparator = Instances.StringOperator.IndexOfAny_OrNotFound(
+				var indexOfFirstDirectorySeparator = Instances.StringOperator.Get_IndexOfAny_OrNotFound(
 					path,
 					directorySeparators);
 

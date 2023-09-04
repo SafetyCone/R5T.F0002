@@ -13,32 +13,6 @@ namespace R5T.F0002
 		F0000.IExecutablePathOperator
 	{
 		/// <summary>
-		/// Gets the directory path containing the current executable file.
-		/// </summary>
-		new public string GetExecutableDirectoryPath()
-		{
-			var executableFilePath = this.Get_ExecutableFilePath();
-
-			var executableDirectoryPath = Instances.PathOperator.GetParentDirectoryPath_ForFile(executableFilePath);
-			return executableDirectoryPath;
-		}
-
-		/// <summary>
-		/// Gets the path of a file given the executable directory-relative path of the file.
-		/// </summary>
-		public string GetExecutableDirectoryRelativeFilePath(
-			string executableDirectoryRelativePath)
-		{
-			var executableDirectoryPath = this.GetExecutableDirectoryPath();
-
-			var filePath = Instances.PathOperator.GetFilePath(
-				executableDirectoryPath,
-				executableDirectoryRelativePath);
-
-			return filePath;
-		}
-
-		/// <summary>
 		/// Gets the file path for an assembly in the same directory as the current executable.
 		/// </summary>
 		public string Get_ExecutableDirectoryAssemblyFilePath(string assemblyName)
@@ -46,7 +20,7 @@ namespace R5T.F0002
             var assemblyFileName = Instances.FileNameOperator.Get_AssemblyFileName(
                 assemblyName);
 
-            var assemblyFilePath = Instances.ExecutablePathOperator.GetExecutableDirectoryRelativeFilePath(
+            var assemblyFilePath = this.Get_Path_ExecutableDirectoryRelative(
                 assemblyFileName);
 
             return assemblyFilePath;
@@ -60,7 +34,7 @@ namespace R5T.F0002
             var assemblyDocumentationFileName = Instances.FileNameOperator.Get_AssemblyDocumentationFileName(
                 assemblyName);
 
-            var assemblyDocumentationFilePath = Instances.ExecutablePathOperator.GetExecutableDirectoryRelativeFilePath(
+            var assemblyDocumentationFilePath = Instances.ExecutablePathOperator.Get_Path_ExecutableDirectoryRelative(
                 assemblyDocumentationFileName);
 
             return assemblyDocumentationFilePath;
