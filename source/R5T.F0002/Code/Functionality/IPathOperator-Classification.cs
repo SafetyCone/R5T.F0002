@@ -290,7 +290,7 @@ namespace R5T.F0002
 
 		public bool IsNullOrEmpty(string path)
         {
-			var output = Instances.StringOperator.IsNullOrEmpty(path);
+			var output = Instances.StringOperator.Is_NullOrEmpty(path);
 			return output;
 		}
 
@@ -390,7 +390,7 @@ namespace R5T.F0002
 			public bool IsRooted_NoValidation(string path)
 			{
 				// If the path is null or empty, then the path is not rooted.
-				var isNullOrEmpty = Instances.StringOperator.IsNullOrEmpty(path);
+				var isNullOrEmpty = Instances.StringOperator.Is_NullOrEmpty(path);
 				if (isNullOrEmpty)
 				{
 					return false;
@@ -422,7 +422,7 @@ namespace R5T.F0002
 			public bool IsRootIndicated_NoValidation(string path)
 			{
 				// Ensure that we have a first character.
-				var isNullOrEmpty = Instances.StringOperator.IsNullOrEmpty(path);
+				var isNullOrEmpty = Instances.StringOperator.Is_NullOrEmpty(path);
 				if (isNullOrEmpty)
 				{
 					return false;
@@ -575,7 +575,7 @@ namespace R5T.F0002
 			/// </summary>
             public bool IsValid_NotNullNotEmpty(string path)
             {
-				var isNullOrEmpty = Instances.StringOperator.IsNullOrEmpty(path);
+				var isNullOrEmpty = Instances.StringOperator.Is_NullOrEmpty(path);
 
 				// If not null and not empty, then valid.
 				var output = !isNullOrEmpty;
