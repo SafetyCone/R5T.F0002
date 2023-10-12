@@ -490,7 +490,7 @@ namespace R5T.F0002
 			public bool IsDirectoryIndicated_NoValidation(string path)
 			{
 				// Test last character of path.
-				var lastCharacter = Instances.StringOperator.GetLastCharacter(path);
+				var lastCharacter = Instances.StringOperator.Get_LastCharacter(path);
 
 				// If the last character of the path is a directory separator, then the path is directory indicated.
 				var output = Instances.DirectorySeparatorOperator.IsDirectorySeparator(lastCharacter);
@@ -503,7 +503,7 @@ namespace R5T.F0002
 			public bool IsFileIndicated_NoValidation(string path)
 			{
 				// Test last character of path.
-				var lastCharacter = Instances.StringOperator.GetLastCharacter(path);
+				var lastCharacter = Instances.StringOperator.Get_LastCharacter(path);
 
 				var isDirectorySeparator = Instances.DirectorySeparatorOperator.IsDirectorySeparator(lastCharacter);
 
