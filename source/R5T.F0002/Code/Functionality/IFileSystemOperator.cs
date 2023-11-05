@@ -13,7 +13,7 @@ namespace R5T.F0002
         {
             var backupFilePath = FilePathOperator.Instance.GetBackupCopyFilePath(filePath);
 
-            this.CopyFile(
+            this.Copy_File(
                 filePath,
                 backupFilePath);
         }
