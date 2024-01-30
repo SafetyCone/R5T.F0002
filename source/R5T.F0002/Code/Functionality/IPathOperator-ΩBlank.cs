@@ -1,6 +1,6 @@
 using System;
 
-using Glossary = R5T.Y0000.Glossary.ForPaths;
+using Glossary = R5T.Y0006.Glossary.ForPaths;
 
 
 namespace R5T.F0002
