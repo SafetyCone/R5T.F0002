@@ -5,7 +5,7 @@ using R5T.F0000;
 using R5T.T0132;
 using R5T.T0221;
 
-using Glossary = R5T.Y0006.Glossary.ForPaths;
+using Glossary = R5T.Y0006.Glossary.For_Paths;
 
 
 // Tests for classifying paths.
